@@ -4,3 +4,6 @@
 
 const name = "Anat";
 console.log(nam);
+
+
+// ReferenceError as the variable that the fuction is calling has been mispelled.

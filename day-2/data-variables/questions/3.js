@@ -4,3 +4,7 @@
 
 const firstName = "Toni";
 firstName = "Tony";
+
+
+
+// When the varibale is called. Toni eill be returned/printed becouse it has been asssigned with a Constant variable which cant be re-assigned.

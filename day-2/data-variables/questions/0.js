@@ -7,3 +7,6 @@ console.log(name);
 
 name = "Paul";
 console.log(name);
+
+// the first cfuction will return undifined as variable name does not hasve value assigned.
+// the socnd function will return "Paul".

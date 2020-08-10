@@ -4,3 +4,6 @@
 
 const name = "Samuel Caine;
 console.log(name);
+
+
+//SyntaxError as the stringquoteation marks are not closed vefore the semi colan.
