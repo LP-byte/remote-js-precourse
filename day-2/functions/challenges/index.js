@@ -130,8 +130,8 @@ try {
 }
 
 function capitaliseFirstLetter(str) {
-let newStr = str[0].toUpperCase();
-let restOfWord = str.substr(1, str.length-1);
+const newStr = str[0].toUpperCase();
+const restOfWord = str.substr(1, str.length-1);
 return newStr + restOfWord
 
 }
