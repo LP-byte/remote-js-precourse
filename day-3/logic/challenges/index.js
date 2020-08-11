@@ -2,6 +2,19 @@ const { check, printGreenMessage, printRedMessage } = require("../../../test-api
 
 function isBiggerThan10(n) {
   // checks if an number is strictly bigger than 10 and returns a message accordingly
+
+
+    const MessageOne = "Number " + n + " is less than 10";
+    const MessageTwo = "Number " + n + " is equal to 10";
+    const MessageThree = "Number " + n + " is more than 10";
+
+        if (n < 10) {return MessageOne
+        } 
+  
+        else if (n === 10){return MessageTwo
+        } 
+        
+        else{return MessageThree}
 }
 
 console.log("isBiggerThan10() returns a message indicating if a number is bigger than 10");
@@ -19,8 +32,9 @@ try {
   printRedMessage(error);
 }
 
-function isFalsy() {
+function isFalsy(value) {
   // checks if a value is falsy and returns true if it is - returns false otherwise
+return !value;
 }
 
 console.log("is Falsy() returns true if a value is falsy and false if it is truthy");
@@ -39,8 +53,13 @@ try {
   printRedMessage(error);
 }
 
-function readTrafficLight() {
+function readTrafficLight(color) {
   // this function should check if the "traffic light" is red, green or amber and return a corresponding message
+if (color == 'green' || color == "GREEN"){return "GO!"}
+else if (color == 'amber' || color == "AMBER"){return "GET READY..."}
+else if (color == 'red' || color == "RED"){return "STOP!"}
+else {return 'No idea'}
+
 }
 
 console.log("readTrafficLight() should print a message according to the different colour passed in");
@@ -61,15 +80,25 @@ try {
   printRedMessage(error);
 }
 
-function isMultipleOf6() {
+function isMultipleOf6(num) {
   // isMultipleOf6 check if a passed value is a multiple of 6
+
+      if (num === 6){return true
+      }  
+      const newNum = num/6;
+      
+      if (newNum%2===0){return true
+      } 
+      
+      else {return false
+      }
+
 }
 
 console.log("isMultipleOf6() should check if a number is divisible by 6");
 
 try {
   check(isMultipleOf6).whenCalledWith(6).returns(true);
-
   check(isMultipleOf6).whenCalledWith(10).returns(false);
   check(isMultipleOf6).whenCalledWith(15).returns(false);
   check(isMultipleOf6).whenCalledWith(36).returns(true);
@@ -79,9 +108,22 @@ try {
   printRedMessage(error);
 }
 
-function checkInfinitive() {
+function checkInfinitive(str) {
   // checkInfinitive() will check if a French word is an infinitive French verb
   // A French infinitive verb is a word that ends with either "re", "ir" or "er"
+const lastStr = str.length;
+const secLastStr = str.length-2;
+const laststrings = str.substring(lastStr, secLastStr);
+  
+
+  if (laststrings == "er"){
+  return true
+} else if (laststrings == "ir"){
+  return true
+} else if (laststrings == "re"){
+  return true
+} else return false;
+
 }
 
 console.log("checkInfinitive() checks if a french word is an infinitive");
@@ -106,11 +148,15 @@ try {
   printRedMessage(error);
 }
 
-function checkGame() {
+function checkGame(dice, coin) {
   // checkGame() should take a value from a diceRoll ( a number from 1 to 6 )
   // and should also take the result from a coinToss (either "H" for heads or "T" for tails)
   // the function should return true if the player wins the game - getting a dice roll of 3 or higher AND a coinToss of 'H'
   // means that you have won the game :)
+if (coin =='H' && dice >=3){
+  return true
+} else {return false}
+
 }
 
 console.log("checkGame() should check if a user was won the game");
@@ -127,13 +173,26 @@ try {
   printRedMessage(error);
 }
 
-function checkBatteryLevel() {
+function checkBatteryLevel(battery) {
   // if the battery level is less than or equal to 5%, then it should return a string stating:
   // "Warning - battery level low: <number-here>%, please charge your device"
   // if the battery level is between 5 and 99% then it should return a string stating:
   // "Battery level: <number-here>%"
   // if the battery level is 100% then it shoud return a string stating:
   // "Fully charged :)"
+
+
+    const batMessage01 = "Battery level: " + battery + "%";
+    const batMessage02 = "Warning - battery level low: " + battery + "%, please charge your device";
+    const batMessage03 = "Fully charged :)"
+
+        if (battery <100 && battery>5){return batMessage01;
+        
+        }
+        else if (battery <=5){return batMessage02
+         
+        } else {return batMessage03}
+
 }
 
 console.log("checkBatteryLevel() should return a message with info about the battery level");
@@ -158,14 +217,33 @@ try {
   printRedMessage(error);
 }
 
-function getOrdinalSuffix() {
+function getOrdinalSuffix(num) {
   // an ordinal suffix are the letters we put after a number:
   // E.g. "nd" is an ordinal suffix as we'd write 2nd
   // E.g. "st" is an ordinal suffix as we'd write 1st etc
   // getOrdinalSuffix() should take a number and return the corresponding ordinal suffix
   // See here for more details: https://www.grammarly.com/blog/how-to-write-ordinal-numbers-correctly/
-}
+  
+  
+  if (num == 1){
+  return "st"
+} else if (num == 2){
+  return "nd"
+} else if (num == 3){
+  return "rd"
+} else if (num > 20 && num% 10 === 1){
+  return "st"
+} else if (num > 20 && num %10 ===2){
+  return "nd"
+} else if (num > 20 && num %10 ===3){
+  return "rd"
+} 
+else {
 
+  return "th"} 
+
+
+}
 console.log("getOrdinalSuffix() should give the correct ordinal suffix for a number");
 
 try {
