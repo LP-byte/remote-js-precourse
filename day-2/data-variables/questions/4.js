@@ -7,3 +7,4 @@ const meaningOfLife = 42;
 console.log(meaningOfLife.toUpperCase());
 
 
+// 42 is returned as variable is constant and cant be over 
