@@ -1,7 +1,10 @@
 const { check, printGreenMessage, printRedMessage } = require("../../../test-api");
 
-function double() {
+function double(n) {
   // return any number doubled
+let doubleNum =  n * 2;
+return doubleNum;
+
 }
 
 console.log("double() gives the correct output");
@@ -16,8 +19,11 @@ try {
   printRedMessage(error);
 }
 
-function modulo() {
+function modulo(num, div) {
   // return the remainder of the division a / b
+const remainderOfNum = num%div;
+return remainderOfNum;
+
 }
 
 console.log("modulo() gives the correct output");
@@ -32,8 +38,12 @@ try {
   printRedMessage(error);
 }
 
-function squareRoot() {
+function squareRoot(num) {
   // return the square root of n
+
+let sqRoot = Math.sqrt(num);
+return sqRoot; 
+
 }
 
 console.log("squareRoot() works for positive integers");
@@ -49,7 +59,10 @@ try {
   printRedMessage(error);
 }
 
-function raiseToPower() {
+function raiseToPower(num, pow) {
+  const toPower = Math.pow(num,pow);
+  return toPower;
+
   // return the result of raising m to the nth power
 }
 
@@ -65,7 +78,9 @@ try {
   printRedMessage(error);
 }
 
-function getLength() {
+function getLength(str) {
+
+  return str.length;
   // return the length of the passed string
 }
 
@@ -81,7 +96,9 @@ try {
   printRedMessage(error);
 }
 
-function putNamesTogether() {
+function putNamesTogether(firstName, lastName) {
+
+  return firstName + " " + lastName;
   // return the first and last names with a space between them
 }
 
@@ -95,7 +112,9 @@ try {
   printRedMessage(error);
 }
 
-function capitaliseString() {
+function capitaliseString(str) {
+
+  return str.toUpperCase();
   // return the passed string with its first letter capitalised
 }
 
@@ -110,7 +129,12 @@ try {
   printRedMessage(error);
 }
 
-function capitaliseFirstLetter() {}
+function capitaliseFirstLetter(str) {
+let newStr = str[0].toUpperCase();
+let restOfWord = str.substr(1, str.length-1);
+return newStr + restOfWord
+
+}
 
 console.log("capitaliseFirstLetter() can capitalise the first letter in a string");
 try {
@@ -124,7 +148,9 @@ try {
   printRedMessage(error);
 }
 
-function areValuesEqual() {
+function areValuesEqual(a, b) {
+return a===b;
+
   // return true if the passed arguments are strictly equal;
 }
 
@@ -139,7 +165,12 @@ try {
   printRedMessage(error);
 }
 
-function isFromThe60s() {
+function isFromThe60s(year) {
+
+if (year >1959 && year < 1970){
+  return true;
+
+} else {return false}
   // return true if the year is in the 1960's
   // returns false otherwise
 }
@@ -156,8 +187,10 @@ try {
   printRedMessage(error);
 }
 
-function isEvenLength() {
-  // return true if string has an even length
+function isEvenLength(string) {
+      
+  const lengthStr = string.length; 
+  if (lengthStr % 2 ===0) {return true} else {return false} 
 }
 
 console.log("isEvenLength() checks if string has even number of characters");
@@ -171,9 +204,14 @@ try {
   printRedMessage(error);
 }
 
-function isAbsolutePath() {
+function isAbsolutePath(str) {
   // checks if a string is an absolute path - does it start with a /
   // HINT: all absolute file paths start with a /
+if (str.startsWith('/')) {
+  return true
+} else return false
+
+
 }
 
 console.log("isAbsolutePath() checks if a file path is absolute or relative");
@@ -189,9 +227,15 @@ try {
   printRedMessage(error);
 }
 
-function getMiddle() {
+function getMiddle(str) {
   // return the middle (or middle two) character(s) of the passed string
   // HINT: You could use the ternary operator for this challenge
+  const stringLen = str.length;
+  const middleStr = Math.floor(stringLen / 2)
+if(stringLen %2 === 0){
+  return str[middleStr -1] + str [middleStr];
+} else return str[middleStr];
+
 }
 
 console.log("getMiddle() returns the middle character in a string of odd length");
@@ -216,9 +260,11 @@ try {
   printRedMessage(error);
 }
 
-function getCharCode() {
+function getCharCode(char) {
   // returns a sentence stating the character code for a given character
   // Look up ASCII online to get a better idea of what a character code is
+
+  return "The ASCII character for " + char + " is " + char.charCodeAt();
 }
 
 console.log("getCharCode() will return a message stating the ascci code of a passed char");
@@ -234,10 +280,11 @@ try {
   printRedMessage(error);
 }
 
-function createPercentage() {
+function createPercentage(per, num) {
   // should take a 2 numbers and work out their percentage
+  let numCal = per / num * 100;
+  return Math.round(numCal) + "%";
 }
-
 console.log('createPercentage() creates a percentage string in the form "--%"');
 
 try {
@@ -253,7 +300,12 @@ try {
   printRedMessage(error);
 }
 
-function extractNumber() {
+function extractNumber(str) {
+
+const openBracket = str.indexOf('(');
+const closeBracket = str.indexOf(')');
+let numOfStr = str.substring(openBracket + 1, closeBracket)
+return Number(numOfStr);
   // shoudld extract a number embedded in a string surrounded by ( ) parentheses
 }
 

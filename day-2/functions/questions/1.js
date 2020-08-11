@@ -8,3 +8,6 @@ function double(num) {
 
 const result1 = double(10);
 console.log(result1);
+
+
+//20
