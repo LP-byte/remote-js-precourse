@@ -6,7 +6,6 @@ const { check, printGreenMessage, printRedMessage } = require("../../../test-api
 function isValidSortCode (code){
 2
   const isValid =  /^\d{2}[-]\d{2}[-]\d{2}$/.test(code);
-  console.log(isValid)
   return isValid;
 
 }
