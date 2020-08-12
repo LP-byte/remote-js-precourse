@@ -3,6 +3,14 @@ const { check, printGreenMessage, printRedMessage } = require("../../../test-api
 // Declare and implement a function isValidSortCode
 // Checks if a passed string is a valid sort code - this should be 2 digits hyphen 2 digits hyphen 2 digits
 
+function isValidSortCode (code){
+2
+  const isValid =  /^\d{2}[-]\d{2}[-]\d{2}$/.test(code);
+  console.log(isValid)
+  return isValid;
+
+}
+
 console.log("isValidSortCode() should check is a sort code string is in the correct format");
 
 try {
