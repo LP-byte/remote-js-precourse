@@ -1,7 +1,10 @@
 const { check, printGreenMessage, printRedMessage } = require("../../../test-api");
 
 // accessObject() should take an object and a key and return the object's property value
+function accessObject(obj, propsearch,){
 
+  return obj[propsearch]
+  }
 console.log("accessObject() can access a property value using a key");
 
 try {
@@ -15,7 +18,12 @@ try {
 
 // checkIfPropertyExists() should take an object and a key and return a boolean that indicates whether or not the object has the given keys
 
+function checkIfPropertyExists(obj, check){
 
+  if (obj.hasOwnProperty(check)) {return true} else{return false}
+  
+  }
+  
 console.log("checkIfPropertyExists() checks if a property exists inside an object");
 try {
   check(checkIfPropertyExists).whenCalledWith({ name: "jonny", age: 32 }, "name").returns(true);
@@ -29,6 +37,14 @@ try {
 
 // createObject() should take a key-value pair (stored in an array) and use it to create an object with a key and a value
 
+function createObject(arr, property) {
+
+  const Propety = arr[0];
+  const Key = arr[1];
+  
+  const obj = {[Propety]: Key}
+  return obj;
+  }
 
 console.log("createObject() creates a new object from a key value pair");
 try {
@@ -43,6 +59,14 @@ try {
 
 // countProperties() should take an object and count the number of properties it has
 
+function countProperties(obj, key){
+
+
+  return Object.keys(obj).length;
+  
+  
+  }
+
 console.log("countProperties() counts the number of key-value pairs for a given object");
 try {
   check(countProperties).whenCalledWith({}).returns(0);
@@ -56,7 +80,18 @@ try {
 
 // createArrow() will take a direction string: "left", "right", "up" and "down" and return a corresponding arrow
 // Think of how you can use an object to solve this problem
-
+function createArrow(Direction){
+  console.log()
+  
+  if (Direction == "right"){return "→"}
+  
+  else if (Direction == "left") {return "←"}
+  
+  else if (Direction == "up") {return "↑"}
+  
+  else if (Direction == "down") {return "↓"}
+  
+  }
 console.log("createArrow() will return an arrow pointing in the right direction");
 try {
   check(createArrow).whenCalledWith("right").returns("→");
@@ -83,6 +118,12 @@ try {
 //    };
 //    Note - The function does NOT need to return anything.
 //
+
+function updateVoterAddress(voter, correctHouseNumber) {
+  
+
+  voter.address.houseNumber = correctHouseNumber; 
+}
 
 console.log("updateVoterAddress() updates the voter's houseNumber");
 try {
@@ -120,6 +161,13 @@ try {
 // Note - this is a good use case of template literals:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 
+function createUserString(userObj) {
+
+  
+  return (`name: ${userObj.name}, age: ${userObj.age}, language: ${userObj.language}`);
+  }
+
+
 console.log("createUserString() will create a message from an details object");
 try {
   check(createUserString)
@@ -143,6 +191,11 @@ try {
 //    '10p: 0
 //  }
 // and should update the coinMachine to reflect any change that is added into the machine
+
+function updateCoinMachine(machine, coin){
+console.log(machine[key])
+
+}
 
 console.log("updateCoinMachine() will create a message from an details object");
 
