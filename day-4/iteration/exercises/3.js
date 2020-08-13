@@ -2,8 +2,10 @@ const { check, printGreenMessage, printRedMessage } = require("../../../test-api
 
 const items = [];
 
-// your loop here...
-
+for (let i = 42; i>2; i--){
+  items.push(i)
+  console.log(items)
+}
 console.log("check numbers starting at 42 and descending are pushed into an array");
 try {
   check(items).isEqualTo([

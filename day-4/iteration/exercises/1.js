@@ -2,8 +2,11 @@ const { check, printGreenMessage, printRedMessage } = require("../../../test-api
 
 const items = [];
 
-// your loop here ...
-
+for (let i=0; i<15; i++){
+  if ([i]%2 ===0)
+    items.push(i)
+    console.log(items)
+}
 console.log("check the even numbers 0 to 14 are pushed into items");
 
 try {

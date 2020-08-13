@@ -2,8 +2,11 @@ const { check, printGreenMessage, printRedMessage } = require("../../../test-api
 
 const alternatingChars = [];
 
-// your loop here ...
-
+for (i =0; i<8; i++){
+  if (i%2 ===0){
+    alternatingChars.push("x")
+  }else {alternatingChars.push("o")}
+}
 console.log("can push alternating characters into an array");
 
 try {

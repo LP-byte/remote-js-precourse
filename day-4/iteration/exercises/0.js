@@ -1,9 +1,10 @@
 const { check, printGreenMessage, printRedMessage } = require("../../../test-api");
-
 const items = [];
+for (let i = 1; i<21; i++){
+  items.push(i)
 
 // use a loop to solve this problem :)
-
+}
 console.log("check the numbers 1 up to 20 are pushed into items");
 
 try {

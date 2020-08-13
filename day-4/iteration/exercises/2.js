@@ -2,8 +2,12 @@ const { check, printGreenMessage, printRedMessage } = require("../../../test-api
 
 const multiplesOf5 = [];
 
-// your loop here ...
-
+for(i=10; i<101; i++){
+  if ([i]%5 ===0){
+  multiplesOf5.push(i)
+  }
+  console.log(multiplesOf5);
+}
 console.log("check multiples of 10 up to 100 are pushed into the array");
 
 try {

@@ -5,6 +5,12 @@ const tutorsAndIndex = [];
 
 // your loop here...
 
+for(i = 0; i<8; i++){
+
+tutorsAndIndex.push(i + " : "+ tutors[i])
+
+}
+
 console.log("can add an index and a tutors'name into an array");
 
 try {
