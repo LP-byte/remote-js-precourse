@@ -238,13 +238,16 @@ try {
 function accessItem(arr, n){
           
   const arrLen = arr.length;
-  console.log(arr[n-arrLen*2])
+  const arrX = n - arrLen*2;
     
     if (n > arrLen){return arr[n-arrLen];
     }
     else if (n === arrLen){return arr[0];
     }
-    else if (n > arrLen*2){return arr[n - arrLen*2];
+    else if (n > arrLen*2)
+    
+    {console.log('hello')
+      return arr[arrX];
     }
     else if (n<1){return arr[0];
     }
