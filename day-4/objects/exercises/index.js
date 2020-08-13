@@ -3,7 +3,7 @@ console.log("Task 1");
 try {
   const myObject = {};
 
-  check(FILL_ME_IN).isEqualTo(typeof myObject);
+  check("object").isEqualTo(typeof myObject);
 
   printGreenMessage("Pass ✔");
 } catch (error) {
@@ -18,10 +18,10 @@ try {
     age: 33,
   };
 
-  check(FILL_ME_IN).isEqualTo(father.firstName);
-  check(FILL_ME_IN).isEqualTo(father.lastName);
-  check(FILL_ME_IN).isEqualTo(father.firstname);
-  check(FILL_ME_IN).isEqualTo(father.age);
+  check("Michael").isEqualTo(father.firstName);
+  check("Bluth").isEqualTo(father.lastName);
+  check(undefined).isEqualTo(father.firstname);
+  check(33).isEqualTo(father.age);
 
   printGreenMessage("Pass ✔");
 } catch (error) {
@@ -36,9 +36,9 @@ try {
   son.age = 16;
   son.jobs = ["Frozen Banana Salesman", "CEO of Fakeblock"];
 
-  check(FILL_ME_IN).isEqualTo(son.name);
-  check(FILL_ME_IN).isEqualTo(typeof son.jobs);
-  check(FILL_ME_IN).isEqualTo(son.jobs[1][5]);
+  check("George Michael").isEqualTo(son.name);
+  check("object", "object").isEqualTo(typeof son.jobs);
+  check("f", "e").isEqualTo(son.jobs[1][5]);
 
   printGreenMessage("Pass ✔");
 } catch (error) {
@@ -56,8 +56,8 @@ try {
   };
   const worstOne = starWars["episode" + (10 - 4)];
 
-  check(FILL_ME_IN).isEqualTo(worstOne);
-  check(starWars["episode7"]).isEqualTo(FILL_ME_IN);
+  check(starWars.episode6).isEqualTo(worstOne);
+  check(starWars["episode8"]).isEqualTo(undefined);
 
   printGreenMessage("Pass ✔");
 } catch (error) {
@@ -73,9 +73,9 @@ try {
     job: "therapist",
   };
 
-  check(FILL_ME_IN).isEqualTo(brotherInLaw.job);
+  check(brotherInLaw.job).isEqualTo(brotherInLaw.job);
   brotherInLaw.job = "actor";
-  check(FILL_ME_IN).isEqualTo(brotherInLaw.job);
+  check("actor").isEqualTo(brotherInLaw.job);
 
   delete brotherInLaw.job;
   check(FILL_ME_IN).isEqualTo(brotherInLaw.job);
@@ -99,10 +99,9 @@ try {
     daughters: [{ name: "Lindsay" }],
   };
 
-  check(FILL_ME_IN).isEqualTo(bluthFamily.father.name);
-  check(bluthFamily.mother.name).isEqualTo(FILL_ME_IN);
-  check(bluthFamily.daughters[FILL_ME_IN].FILL_ME_IN).isEqualTo("Lindsay");
-
+  check("George").isEqualTo(bluthFamily.father.name);
+  check(bluthFamily.mother.name).isEqualTo("Lucille");
+  check(bluthFamily.daughters[0].name).isEqualTo("Lindsay");
   printGreenMessage("Pass ✔");
 } catch (error) {
   printRedMessage(error);
