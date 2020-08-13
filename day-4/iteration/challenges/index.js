@@ -1,3 +1,12 @@
+
+function makeAllUpperCase(arr){
+
+  for (let i = 0; i < arr.length; i++){
+    arr[i] = arr[i].toUpperCase();
+  }
+  return arr
+}
+
 const { check, printGreenMessage, printRedMessage } = require("../../../test-api");
 
 console.log("makeAllUpperCase() can get all the strings from an array");
@@ -13,6 +22,16 @@ try {
   printRedMessage(error);
 }
 
+function collectStrings(arr){
+  let justStr = []
+  for (let i = 0; i<arr.length; i++){
+    if (typeof arr[i] == "string"){
+      justStr.push(arr[i])
+    }
+  }
+  return justStr
+}
+
 console.log("collectStrings() can get all the strings from an array");
 try {
   check(collectStrings).whenCalledWith(["a", "b", "c"]).returns(["a", "b", "c"]);
@@ -22,6 +41,19 @@ try {
 } catch (error) {
   printRedMessage("Fail ✗");
   printRedMessage(error);
+}
+
+
+function getEvenNumbers(arr){
+
+let justEvens = [];  
+
+for (let i =0; i<arr.length; i++){
+  if (arr[i]%2 ===0){
+    justEvens.push(arr[i])
+  }
+}
+return justEvens
 }
 
 console.log("getEvenNumbers() can get all the even numbers from an array of numbers");
@@ -34,6 +66,17 @@ try {
 } catch (error) {
   printRedMessage("Fail ✗");
   printRedMessage(error);
+}
+
+
+function collectPlurals(arr){
+let justPlurals = [];
+for (let i = 0; i <arr.length; i++){
+  if (arr[i].endsWith('s', arr[i].length)){
+    justPlurals.push(arr[i])
+  }
+}
+return justPlurals
 }
 
 console.log("collectPlurals() can collect all the strings ending in an s");
@@ -54,6 +97,16 @@ try {
 
 // creates an array of the given length populated with the given char
 
+function createArray(num, char){
+
+  let charArr = []
+  for (let i = 0; i<num; i++){
+  charArr.splice(i, 0, char)
+
+  }
+
+  return charArr
+}
 console.log("createArray() creates an array of the specified length using a specified character");
 try {
   check(createArray).whenCalledWith(3, "!").returns(["!", "!", "!"]);
@@ -63,6 +116,11 @@ try {
 } catch (error) {
   printRedMessage("Fail ✗");
   printRedMessage(error);
+}
+
+function deleteManyPasswords(users){
+
+  return users.map(({password,...restOfObj}) => restOfObj)
 }
 
 console.log("deleteManyPasswords() deletes the password property for each user");
@@ -79,6 +137,17 @@ try {
 } catch (error) {
   printRedMessage("Fail ✗");
   printRedMessage(error);
+}
+function countTheObjects(arr) {
+let count = 0; 
+arr.forEach(objCount => { 
+  if (typeof objCount === "object" && objCount !== null && !Array.isArray(objCount)) {
+    
+  count++; 
+  }
+});
+
+return count;
 }
 
 console.log("countTheObjects() counts all the objects in an array of multi-type items");
