@@ -9,5 +9,5 @@ const anatPhoneNo = phoneBook.name;
 
 console.log(anatPhoneNo);
 
-// What will happen when this file is executed with NodeJS ?
-// What is the problem with this code ?
+// What will happen when this file is executed with NodeJS ? undefinded 
+// What is the problem with this code ? The valye needs to be assigned toproperty using bracket notation
