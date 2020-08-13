@@ -193,8 +193,9 @@ try {
 // and should update the coinMachine to reflect any change that is added into the machine
 
 function updateCoinMachine(machine, coin){
-console.log(machine[key])
 
+const insertCoin =  machine[coin]+=1
+return machine
 }
 
 console.log("updateCoinMachine() will create a message from an details object");
