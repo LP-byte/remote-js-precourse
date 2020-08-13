@@ -19,6 +19,21 @@ try {
 
 // getLastNItems() return an array with the last n items of the array
 
+function getLastNItems(arr, n){
+
+const arrLen = arr.length;
+const afterArr = n + 1;
+
+    if (afterArr === arrLen-1){return [arr[n], arr.pop()];
+    }
+
+    else if  (n < 1){return [];
+    }
+
+    else {return arr.slice(arrLen-n)
+    }
+}
+
 console.log("getLastNItems() returns the last n items in an array");
 try {
   check(getLastNItems).whenCalledWith(["a", "b", "c", "d"], 2).returns(["c", "d"]);
@@ -31,6 +46,11 @@ try {
 }
 
 // removeItem() returns a new array without the item on position 'n', effectively removing it from the array
+function removeItem(arr, n){
+  
+  const withoutN = arr.splice(n, 1);
+  return arr;
+}
 
 console.log("removeItem() removes an item at a given index");
 try {
@@ -44,6 +64,12 @@ try {
 }
 
 // mergeArrays() returns a new array containing all of arr1 and arr2's elements
+
+function mergeArrays(arrOne, arrTwo){
+
+  return arrOne.concat(arrTwo);
+
+}
 
 console.log("mergeArrays() will concatenate two arrays together");
 
@@ -60,6 +86,12 @@ try {
 // if an array is like a sandwich, the first and last items are the bread
 // getSandwichFilling() should return an array with the filling of the sandwich
 
+function getSandwichFilling(arr){
+const firstSlice = arr.shift()
+const secondSlice = arr.pop()
+return arr;
+}
+
 console.log("getSandwichFilling() returns the inner elements of an array");
 try {
   check(getSandwichFilling).whenCalledWith(["a", "b", "c", "d"]).returns(["b", "c"]);
@@ -73,7 +105,18 @@ try {
 
 // isEmptyArray() should return a boolean checking if an array is empty
 
-console.log("isEmptyArray() checks if an array is empty");
+function isEmptyArray(arr){
+
+  const arrLen = arr.length;
+    
+    if (arrLen < 1){return true
+    } 
+    else {return false
+    }
+
+}
+
+console.log(" checks if an array is empty");
 try {
   check(isEmptyArray).whenCalledWith([]).returns(true);
   check(isEmptyArray).whenCalledWith(["a", "b", "c", "d"]).returns(false);
@@ -86,6 +129,10 @@ try {
 
 // howManyArguments() should return the number of arguments passed into the function
 // HINT: For this one you should look at notes.md
+
+function howManyArguments(...arr){
+return arr.length
+}
 
 console.log("howManyArguments() returns the number of items passed on a single call");
 try {
@@ -105,7 +152,22 @@ try {
 // If the direction is down it should move 1 unit down (- 1 in the y direction)
 // If the direction is right it should move 1 unit right (+ 1 in the x direction)
 // If the direction is left it should move 1 unit left (- 1 in the x direction)
+function updatePosition(arr, direction){
 
+  if (direction === "up"){
+    arr[1] = arr[1]+1
+  }
+  else if (direction === "down"){
+    arr[1] = arr[1]-1
+  }
+  else if (direction === "left"){
+    arr[0] = arr[0] -1
+  }
+  else if (direction ==="right"){
+    arr[0] = arr[0]+1
+  }
+return arr
+}
 console.log("updatePosition() updates a co-ordinates array");
 try {
   check(updatePosition).whenCalledWith([10, 10], "up").returns([10, 11]);
@@ -123,7 +185,22 @@ try {
 //  1p   2p   5p   10p
 // [[],  [],  [],  []] <-- coinCollection
 // addCoins() will take the coinCollection and some money and will need to update a slot with some of the coins at a given // position
-
+function addCoins(slots, coin){
+  
+  if (coin === "1p"){
+    slots[0].push(coin)
+  }
+  else if (coin === "2p"){
+    slots[1].push(coin)
+  }
+  else if (coin === "5p"){
+    slots[2].push(coin)
+  } 
+  else if (coin === "10p"){
+    slots[3].push(coin)
+  }
+    return slots
+}
 console.log("addCoins() will update the coins in a given slot");
 
 try {
@@ -158,6 +235,22 @@ try {
 
 // accessItem() should access an array element at a specified index position
 
+function accessItem(arr, n){
+          
+  const arrLen = arr.length;
+  console.log(arr[n-arrLen*2])
+    
+    if (n > arrLen){return arr[n-arrLen];
+    }
+    else if (n === arrLen){return arr[0];
+    }
+    else if (n > arrLen*2){return arr[n - arrLen*2];
+    }
+    else if (n<1){return arr[0];
+    }
+    else {return arr[n];
+    }
+  }
 console.log("accessItem()");
 console.log("  can access an item inside in an array with a given index below the array length");
 try {
@@ -185,7 +278,10 @@ try {
 // findDayOfTheWeek() will need to return the day of the week
 // in this task,
 // 1 -> Monday, 2 -> Tuesday, 3 -> Wednesday, 4 -> Thursday, 5 -> Friday, 6 -> Saturday, 7 -> Sunday
-
+function findDayOfTheWeek(day){
+  const week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  return week[day -1];
+}
 console.log("findDayOfTheWeek() returns the day of the week given a passed number");
 try {
   check(findDayOfTheWeek).whenCalledWith(2).returns("Tuesday");
@@ -202,7 +298,11 @@ try {
 
 // extractNumber() should return the number embedded between the ( ) parentheses.
 // In this challenge, research the .match() method and use your knowledge of regular expressions
-
+function extractNumber(str){
+  const findNumbers = /\d+/g;
+  const justNumbers = str.match(findNumbers);
+  return Number(justNumbers);
+}
 console.log("extractNumber() should return the number buried inside a string of random characters");
 
 try {
